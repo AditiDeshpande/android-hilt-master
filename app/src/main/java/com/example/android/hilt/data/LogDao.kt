@@ -23,6 +23,21 @@ import androidx.room.Query
 /**
  * Data access object to query the database.
  */
+
+/*
+However, because LogDao is an interface, we cannot annotate
+its constructor with @Inject as interfaces don't have one.
+How can we tell Hilt how to provide instances of this type?
+
+Modules are used to add bindings to Hilt, or in other words,
+to tell Hilt  how to provide instances of different types.
+In Hilt modules,
+you include bindings for types that cannot be constructor
+injected such as interfaces or classes that are not contained
+in your project. An example of this is OkHttpClient -
+you need to use its builder to create an instance.
+ */
+
 @Dao
 interface LogDao {
 
